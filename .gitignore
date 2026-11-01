@@ -1,7 +1,77 @@
-# Executable is distributed through GitHub Releases.
-/PLASTO.exe
+# ---- сборка ----
+/target/
+dist/
+out/
+release/
+*.exe
+*.msi
+*.nsis
+*.blockmap
+latest*.yml
+
+# ---- компоненты zapret ----
+# сборку тянет updater.rs в %APPDATA%, но если кто-то положит рядом — не коммитим
+zapret/
+bin/
+lists/
+*.sys
+winws.exe
+WinDivert*.dll
+
+# ---- тяжёлые ассеты ----
+# кадры состояний и звуки нужны в репозитории: без них приложение не собрать.
+# Если решишь вынести их в релизы — раскомментируй.
+# *.png
+# *.mp3
+# *.ttf
+# *.woff
+# *.woff2
+
+# исходники и промежуточные файлы графики
+*.psd
+*.ai
+*.xcf
+*.fig
+*.sketch
+*.blend
+*.blend1
+*_source.*
+*-source.*
+*.wav
+*.aiff
+*.flac
+
+# ---- локальное ----
+*.log
+plasto-config.json
 .env
-.env.*
-!.env.example
+.env.local
+
+# ---- редакторы и ОС ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# ---- прочее ----
+.cache/
+tmp/
+temp/
+coverage/
+
+*.bak-*
+
+# Личные данные и рабочие заметки
+.claude/
+.codex/
+*.md
+!README.md
+!BUILDING.md
+
+# Встроенная сборка zapret (ci/refresh-zapret.py, вшивается в exe) — в репозитории.
+!/assets/zapret/
+!/assets/zapret/**

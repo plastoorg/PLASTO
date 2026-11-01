@@ -1,0 +1,101 @@
+[package]
+name = "plasto"
+version = "1.0.0"
+description = "PLASTO — обход блокировок в один клик"
+edition = "2021"
+rust-version = "1.95"
+build = "build.rs"
+
+# Тесты живут в библиотеке: у бинаря манифест requireAdministrator, и его
+# тестовый exe без повышения прав не запустился бы.
+[[bin]]
+name = "plasto"
+path = "src/main.rs"
+test = false
+
+[build-dependencies]
+embed-resource = "3"
+# Встроенная сборка zapret пакуется в архив при сборке.
+zip = { version = "2", default-features = false, features = ["deflate"] }
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+regex-lite = "0.1"
+native-tls = { version = "0.2", features = ["alpn"] }
+url = "2"
+sha1 = "0.10"
+http = "1"
+h2 = "0.4"
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "net", "time", "io-util", "sync"] }
+tokio-native-tls = "0.3"
+ureq = { version = "2", default-features = false, features = ["native-tls"] }
+# Тестер стратегий привязывает сокеты к своим портам: их видит только проверяемый winws.
+socket2 = "0.6"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+sha2 = "0.10"
+tempfile = "3"
+# Замер скорости через 2ip: их серверы говорят только по WebSocket.
+tungstenite = { version = "0.30", default-features = false, features = ["handshake", "native-tls"] }
+aes = "0.8"
+ctr = "0.9"
+# Мониторинг стабильности: год замеров по уровням (секунды, минуты, часы).
+# Встроенная сборка — без системной библиотеки и на Windows, и в CI.
+rusqlite = { version = "0.41", features = ["bundled"] }
+# Встроенный Telegram-прокси: tg-ws-proxy-rs (valnesfjord, MIT) как библиотека,
+# в своём потоке. Тег, а не crates.io: релизы там появляются позже.
+tg-ws-proxy-rs = { git = "https://github.com/valnesfjord/tg-ws-proxy-rs", tag = "v2.5.10" }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "std", "registry"] }
+
+# Только Windows: интерфейс и Win32. Без них бэкенд с тестами собирается и на
+# Linux — так CI на Raspberry Pi гоняет тесты логики, а exe собирает кросс-сборкой.
+[target.'cfg(windows)'.dependencies]
+# Живой фон: видео сцены разбирает Media Foundation (встроен в Windows).
+# Сам крейт уже в сборке через wgpu, здесь — только нужные его части.
+windows = { version = "0.62", features = ["Win32_Media_MediaFoundation", "Win32_System_Com", "Win32_System_Com_StructuredStorage", "Win32_System_Variant", "Win32_UI_Shell"] }
+# Интерфейс: egui. Основной вывод — видеокарта, только DirectX 12: стекло с
+# размытием и шейдер экрана монитора на CPU не потянуть. Устройство живёт, пока
+# окно на экране, и в трее отдаётся целиком: в трее процесс занимает меньше
+# мегабайта RAM, с открытым окном — около 60 МБ RAM и 60 МБ видеопамяти
+# (замер на RTX 3080; Vulkan на той же карте тяжелее, ~65–90 МБ).
+egui = { version = "0.34", default-features = false }
+egui-winit = { version = "0.34", default-features = false, features = ["clipboard"] }
+egui-wgpu = { version = "0.34", default-features = false, features = ["winit"] }
+wgpu = { version = "29", default-features = false, features = ["dx12", "std", "wgsl"] }
+# Запасной вывод: растеризация на CPU и UpdateLayeredWindow — когда видеокарты
+# нет (удалённый рабочий стол, виртуальная машина) или задано PLASTO_RENDERER=cpu.
+egui_software_backend = { version = "0.0.3", default-features = false, features = ["std"] }
+winit = { version = "0.30", default-features = false, features = ["rwh_06"] }
+raw-window-handle = "0.6"
+image = { version = "0.25", default-features = false, features = ["jpeg"] }
+windows-sys = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Dwm",
+    "Win32_Globalization",
+    "Win32_Graphics_Gdi",
+    "Win32_NetworkManagement_IpHelper",
+    "Win32_NetworkManagement_Ndis",
+    "Win32_NetworkManagement_WiFi",
+    "Win32_Networking_WinSock",
+    "Win32_Security",
+    "Win32_Storage_FileSystem",
+    "Win32_System_EventLog",
+    "Win32_System_JobObjects",
+    "Win32_System_Registry",
+    "Win32_Media_Multimedia",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Performance",
+    "Win32_System_SystemInformation",
+    "Win32_System_Threading",
+    "Win32_System_Time",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

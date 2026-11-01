@@ -1,0 +1,7 @@
+# CRT вшивается в exe: без этого он требует VCRUNTIME140.dll, которой нет на
+# Windows без Visual C++ Redistributable. Действует и для локальной сборки, и
+# для кросс-сборки на Linux (ci/build-windows.sh).
+# /ignore:4099 — у статического CRT нет .pdb; отладочную информацию exe всё
+# равно не несёт (strip), а предупреждение засоряет лог сборки.
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static", "-C", "link-arg=/ignore:4099"]

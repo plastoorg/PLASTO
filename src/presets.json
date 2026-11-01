@@ -1,0 +1,129 @@
+[
+  {
+    "id": "dnsai",
+    "name": "DNS-AI.ru",
+    "servers": [
+      "194.87.196.13",
+      "45.151.102.219"
+    ],
+    "servers6": [
+      "2a00:b700:5::3:62",
+      "2a12:5940:d4ef::219"
+    ],
+    "doh": "https://dns.dns-ai.ru/dns-query",
+    "dot": "dns.dns-ai.ru",
+    "encryptedOnly": true,
+    "unblocks": true,
+    "note": "Снимает ошибку региона у нейросетей для РФ и Беларуси, режет рекламу и телеметрию. Только шифрованный DNS (DoH): нужна Windows 11, на Windows 10 — роутер или DNS-AI.exe. IPv6 заполняется тоже, иначе часть запросов уйдёт мимо."
+  },
+  {
+    "id": "xbox",
+    "name": "xbox-dns.ru",
+    "servers": [
+      "111.88.96.50",
+      "111.88.96.51"
+    ],
+    "doh": "https://xbox-dns.ru/dns-query",
+    "unblocks": true,
+    "note": "Отдаёт адреса своих SNI-прокси для ИИ-сервисов — снимает и гео-блок по IP."
+  },
+  {
+    "id": "comss",
+    "name": "Comss.one DNS",
+    "servers": [
+      "83.220.169.155",
+      "212.109.195.93"
+    ],
+    "doh": "https://dns.comss.one/dns-query",
+    "unblocks": true,
+    "note": "То же самое плюс блокировка рекламы и вредоносных доменов на стороне сервера."
+  },
+  {
+    "id": "zapretmoe",
+    "name": "dns.zapret.moe",
+    "servers": [
+      "83.217.211.149"
+    ],
+    "servers6": [
+      "2a03:afc0:9::235d"
+    ],
+    "doh": "https://dns.zapret.moe/dns-query",
+    "dot": "dns.zapret.moe",
+    "unblocks": true,
+    "note": "Отдаёт адреса своих прокси для заблокированных и гео-закрытых сервисов. Один IPv4-адрес — запасного нет."
+  },
+  {
+    "id": "malw",
+    "name": "dns.malw.link",
+    "servers": [
+      "179.254.166.171",
+      "164.5.224.81"
+    ],
+    "servers6": [
+      "2a12:bec4:1bb0:27dd::2",
+      "2a13:82c0:0:d::3"
+    ],
+    "doh": "https://dns.malw.link/dns-query",
+    "dot": "dns.malw.link",
+    "unblocks": true,
+    "note": "Снимает гео-блок у нейросетей и других сервисов через свои прокси. Тот же автор ведёт список hosts, который ставит PLASTO."
+  },
+  {
+    "id": "geohide",
+    "name": "GeoHide DNS",
+    "servers": [
+      "193.233.112.67",
+      "193.233.112.68",
+      "193.233.112.88",
+      "37.230.192.51",
+      "159.194.200.33"
+    ],
+    "doh": "https://geohide.ru/dns-query",
+    "dot": "geohide.ru",
+    "unblocks": true,
+    "note": "Снимает гео-блок через свои прокси. Пять серверов IPv4, IPv6 нет."
+  },
+  {
+    "id": "commonnet",
+    "name": "CommonNet DNS",
+    "servers": [
+      "94.181.44.39"
+    ],
+    "doh": "https://dns.commonnet.work/dns-query",
+    "dot": "dns.commonnet.work",
+    "unblocks": true,
+    "note": "Снимает гео-блок через свои прокси. Официально даёт только DoH/DoT, IP взят из их имени — может смениться."
+  },
+  {
+    "id": "bezmezhau",
+    "name": "Bezmezhau DNS",
+    "servers": [
+      "181.215.40.49"
+    ],
+    "dot": "dns.bezmezhau.com",
+    "unblocks": true,
+    "note": "Снимает гео-блок через свой прокси. Официально даёт только DoH/DoT, IP взят из их имени — может смениться. DoH при проверке не ответил, поэтому без шифрования."
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "servers": [
+      "1.1.1.1",
+      "1.0.0.1"
+    ],
+    "doh": "https://cloudflare-dns.com/dns-query",
+    "unblocks": false,
+    "note": "Шифрует запросы, но отвечает настоящие адреса — гео-блок по IP остаётся."
+  },
+  {
+    "id": "google",
+    "name": "Google Public DNS",
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4"
+    ],
+    "doh": "https://dns.google/dns-query",
+    "unblocks": false,
+    "note": "Шифрует запросы, но отвечает настоящие адреса — гео-блок по IP остаётся."
+  }
+]

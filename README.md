@@ -228,7 +228,7 @@ PLASTO объединяет существующие технологии и и�
 - [dns.malw.link](https://dns.malw.link) — каталог настроек прокси для ИИ-сервисов.
 - Авторам DNS-проектов, доступных в настройках приложения.
 
-В этом репозитории размещены описание приложения и готовые сборки в Releases. Исходный код приложения будет добавлен отдельно. Сайт проекта находится в [отдельном репозитории](https://github.com/PLASTO-ORG/PLASTO-site).
+В этом репозитории размещены исходный код приложения, инструкция по сборке и готовые сборки в Releases. Сайт проекта находится в [отдельном репозитории](https://github.com/PLASTO-ORG/PLASTO-site).
 
 **Проект и релизы:** [репозиторий PLASTO](https://github.com/PLASTO-ORG/PLASTO) · [Скачать PLASTO.exe](https://github.com/PLASTO-ORG/PLASTO/releases/latest/download/PLASTO.exe) · [Сообщить о проблеме](https://github.com/PLASTO-ORG/PLASTO/issues).
 

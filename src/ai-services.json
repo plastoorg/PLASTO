@@ -1,0 +1,273 @@
+[
+  {
+    "id": "gemini",
+    "name": "Gemini · AI Studio",
+    "block": "both",
+    "domains": [
+      "gemini.google.com",
+      "aistudio.google.com",
+      "notebooklm.google.com",
+      "generativelanguage.googleapis.com",
+      "alkalimakersuite-pa.clients6.google.com",
+      "proactivebackend-pa.googleapis.com",
+      "ai.studio"
+    ],
+    "probe": {
+      "host": "gemini.google.com",
+      "path": "/app"
+    },
+    "postLoginGeo": true,
+    "count": 7,
+    "proxyable": null
+  },
+  {
+    "id": "antigravity",
+    "name": "Antigravity",
+    "block": "geo",
+    "domains": [
+      "antigravity.google",
+      "antigravity-unleash.goog",
+      "antigravity.googleapis.com",
+      "antigravity-pa.googleapis.com",
+      "cloudcode-pa.googleapis.com",
+      "daily-cloudcode-pa.googleapis.com"
+    ],
+    "probe": {
+      "host": "antigravity.google",
+      "path": "/"
+    },
+    "postLoginGeo": true,
+    "count": 6,
+    "proxyable": null
+  },
+  {
+    "id": "googlelabs",
+    "name": "Google Labs · Flow / Veo",
+    "block": "geo",
+    "domains": [
+      "labs.google",
+      "flow.google.com",
+      "aisandbox-pa.googleapis.com",
+      "aitestkitchen.withgoogle.com"
+    ],
+    "probe": {
+      "host": "flow.google.com",
+      "path": "/"
+    },
+    "postLoginGeo": true,
+    "count": 4,
+    "proxyable": null
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "block": "both",
+    "domains": [
+      "chatgpt.com",
+      "openai.com",
+      "oaistatic.com",
+      "oaiusercontent.com",
+      "openaiapi-site.azureedge.net",
+      "oaistatsig.com"
+    ],
+    "probe": {
+      "host": "chatgpt.com",
+      "path": "/"
+    },
+    "postLoginGeo": false,
+    "count": 6,
+    "proxyable": null
+  },
+  {
+    "id": "openai-api",
+    "name": "OpenAI API · Codex",
+    "block": "both",
+    "domains": [
+      "api.openai.com",
+      "platform.openai.com",
+      "openaiusercontent.com"
+    ],
+    "probe": {
+      "host": "api.openai.com",
+      "path": "/v1/models"
+    },
+    "postLoginGeo": false,
+    "count": 3,
+    "proxyable": null
+  },
+  {
+    "id": "claude",
+    "name": "Claude · Anthropic",
+    "block": "both",
+    "domains": [
+      "claude.ai",
+      "anthropic.com",
+      "claudeusercontent.com",
+      "claude.com",
+      "clau.de",
+      "claude.app",
+      "claude.new",
+      "claude.site",
+      "claudemcpclient.com",
+      "claudemcpcontent.com",
+      "claudepages.dev",
+      "claudestudio.com"
+    ],
+    "probe": {
+      "host": "api.anthropic.com",
+      "path": "/v1/models"
+    },
+    "postLoginGeo": false,
+    "count": 12,
+    "proxyable": null
+  },
+  {
+    "id": "x",
+    "name": "X · Grok",
+    "block": "isp",
+    "domains": [
+      "x.com",
+      "twitter.com",
+      "twimg.com",
+      "t.co",
+      "grok.com",
+      "x.ai"
+    ],
+    "probe": {
+      "host": "x.com",
+      "path": "/"
+    },
+    "postLoginGeo": false,
+    "count": 6,
+    "proxyable": null
+  },
+  {
+    "id": "copilot",
+    "name": "GitHub Copilot",
+    "block": "geo",
+    "domains": [
+      "copilot.microsoft.com",
+      "api.githubcopilot.com",
+      "copilot-proxy.githubusercontent.com",
+      "origin-tracker.githubusercontent.com"
+    ],
+    "probe": {
+      "host": "api.githubcopilot.com",
+      "path": "/"
+    },
+    "postLoginGeo": false,
+    "count": 4,
+    "proxyable": null
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "block": "geo",
+    "domains": [
+      "cursor.com",
+      "cursor.sh",
+      "cursorapi.com",
+      "cursor-cdn.com"
+    ],
+    "probe": {
+      "host": "api2.cursor.sh",
+      "path": "/"
+    },
+    "postLoginGeo": true,
+    "count": 4,
+    "proxyable": null
+  },
+  {
+    "id": "jetbrains",
+    "name": "JetBrains AI · аккаунт",
+    "block": "geo",
+    "domains": [
+      "jetbrains.com",
+      "jetbrains.ai",
+      "grazie.ai",
+      "jetbrains.space",
+      "jetbrains.net",
+      "jetbrains.dev",
+      "intellij.net",
+      "jb.gg"
+    ],
+    "probe": {
+      "host": "account.jetbrains.com",
+      "path": "/"
+    },
+    "postLoginGeo": true,
+    "count": 8,
+    "proxyable": null
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "block": "isp",
+    "domains": [
+      "perplexity.ai",
+      "pplx.ai"
+    ],
+    "probe": {
+      "host": "www.perplexity.ai",
+      "path": "/"
+    },
+    "postLoginGeo": false,
+    "count": 2,
+    "proxyable": null
+  },
+  {
+    "id": "huggingface",
+    "name": "Hugging Face",
+    "block": "isp",
+    "domains": [
+      "huggingface.co",
+      "hf.co",
+      "cdn-lfs.huggingface.co"
+    ],
+    "probe": {
+      "host": "huggingface.co",
+      "path": "/"
+    },
+    "postLoginGeo": false,
+    "count": 3,
+    "proxyable": null
+  },
+  {
+    "id": "misc",
+    "name": "Прочие ИИ",
+    "block": "both",
+    "domains": [
+      "deepseek.com",
+      "mistral.ai",
+      "cohere.com",
+      "elevenlabs.io",
+      "midjourney.com",
+      "suno.com",
+      "runwayml.com",
+      "poe.com",
+      "codeium.com",
+      "groq.com",
+      "together.ai",
+      "replicate.com",
+      "civitai.com",
+      "stability.ai",
+      "augmentcode.com",
+      "kilo.ai",
+      "factory.ai",
+      "manus.im",
+      "lovable.dev",
+      "lovable.app",
+      "openrouter.ai",
+      "cerebras.ai",
+      "cohere.ai",
+      "together.xyz"
+    ],
+    "probe": {
+      "host": "api.deepseek.com",
+      "path": "/"
+    },
+    "postLoginGeo": false,
+    "count": 24,
+    "proxyable": null
+  }
+]

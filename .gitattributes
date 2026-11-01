@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+# Скрипт вшивается в exe побайтно (include_str!) и сверяется тестом: только LF.
+*.ps1 text eol=lf
+# Скрипты для Linux-раннера: bash не понимает CRLF.
+*.sh text eol=lf
+# Встроенная сборка zapret — побайтно как у Flowseal (.bat с CRLF): git её не трогает.
+assets/zapret/** -text
+assets/zapret.json text eol=lf
+*.py text eol=lf

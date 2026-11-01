@@ -1,0 +1,153 @@
+name: build
+
+
+# Ручной запуск; требуется настроенный self-hosted Linux ARM64 runner.
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: 'Проверить обновления zapret'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name == 'schedule' || inputs.refresh }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') && github.event_name != 'schedule' }}
+
+env:
+  # Каталог сборки вне рабочей копии: checkout чистит её, а на Pi пересборка
+  # зависимостей с нуля стоит минут.
+  CARGO_TARGET_DIR: ${{ github.workspace }}/../plasto-target
+  CARGO_TERM_COLOR: always
+
+jobs:
+  # Только по расписанию или вручную с галкой: свежий zapret → новая версия.
+  # Коммит и тег уходят в main лишь после зелёных тестов. Пуш токеном
+  # Actions новых запусков не порождает — сборку и релиз делают задания ниже.
+  refresh:
+    name: Свежий zapret
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
+    runs-on: [self-hosted, Linux, ARM64]
+    permissions:
+      contents: write
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      zapret: ${{ steps.check.outputs.zapret }}
+      previous: ${{ steps.check.outputs.previous }}
+      version: ${{ steps.check.outputs.version }}
+      sha: ${{ steps.push.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Есть ли новый релиз у Flowseal
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ci/refresh-zapret.py --apply --bump | tee -a "$GITHUB_OUTPUT"
+
+      - name: Тесты на новой сборке
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          rustup toolchain install stable --profile minimal --no-self-update
+          cargo +stable test --locked
+
+      - name: Коммит и тег
+        id: push
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          ver='${{ steps.check.outputs.version }}'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/zapret assets/zapret.json Cargo.toml Cargo.lock
+          git commit -m "Bundled zapret ${{ steps.check.outputs.zapret }}, PLASTO $ver (auto)"
+          git tag "v$ver"
+          git push origin HEAD:main "v$ver"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Тесты и сборка
+    needs: refresh
+    # Без refresh (обычный push, тег, PR) — как всегда; после него — только
+    # если вышла новая версия.
+    if: ${{ !cancelled() && needs.refresh.result != 'failure' && (needs.refresh.result == 'skipped' || needs.refresh.outputs.changed == 'true') }}
+    runs-on: [self-hosted, Linux, ARM64]
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.refresh.outputs.sha || github.sha }}
+
+      - name: Версия
+        id: version
+        run: |
+          ver=$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -1)
+          echo "version=$ver" >> "$GITHUB_OUTPUT"
+          if [[ "$GITHUB_REF" == refs/tags/v* && "${GITHUB_REF_NAME#v}" != "$ver" ]]; then
+            echo "::error::тег $GITHUB_REF_NAME не совпадает с версией $ver в Cargo.toml"
+            exit 1
+          fi
+
+      # Toolchain машины по умолчанию не трогаем: ставим stable рядом и зовём явно.
+      # После refresh тесты уже прошли на этом же коммите.
+      - name: Тесты
+        if: needs.refresh.outputs.changed != 'true'
+        run: |
+          rustup toolchain install stable --profile minimal --no-self-update
+          cargo +stable test --locked
+
+      # Интерфейсные тесты (3 шт.) идут только в Windows — их гоняет build.cmd.
+      - name: Сборка Windows-exe
+        if: github.event_name != 'pull_request'
+        run: bash ci/build-windows.sh
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: PLASTO-${{ steps.version.outputs.version }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+  release:
+    name: Релиз
+    needs: [refresh, build]
+    if: ${{ !cancelled() && needs.build.result == 'success' && (startsWith(github.ref, 'refs/tags/v') || needs.refresh.outputs.changed == 'true') }}
+    runs-on: [self-hosted, Linux, ARM64]
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: PLASTO-${{ needs.build.outputs.version }}
+          path: dist
+
+      # Если релиз с этим тегом уже создан руками, описание не трогается —
+      # файлы докладываются в него.
+      - uses: softprops/action-gh-release@v2
+        if: needs.refresh.outputs.changed != 'true'
+        with:
+          name: PLASTO ${{ needs.build.outputs.version }}
+          files: dist/*
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+
+      # Автосборка: всегда pre-release, с пометкой, что руками её не проверяли.
+      - uses: softprops/action-gh-release@v2
+        if: needs.refresh.outputs.changed == 'true'
+        with:
+          tag_name: v${{ needs.build.outputs.version }}
+          name: PLASTO ${{ needs.build.outputs.version }} — автосборка, не проверено
+          files: dist/*
+          prerelease: true
+          fail_on_unmatched_files: true
+          body: |
+            **Автосборка: вручную не проверялась.** Её видят только те, у кого в настройках выбран канал обновлений «Бета».
+
+            Встроенный zapret обновлён: ${{ needs.refresh.outputs.previous }} → **${{ needs.refresh.outputs.zapret }}** ([релиз Flowseal](https://github.com/Flowseal/zapret-discord-youtube/releases/tag/${{ needs.refresh.outputs.zapret }})). Остальное — как в предыдущей версии. Тесты прошли, в том числе разбор всех стратегий новой сборки.
