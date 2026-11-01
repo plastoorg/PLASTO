@@ -1,4 +1,4 @@
-//! Обновление самого PLASTO из релизов github.com/PLASTO-ORG/PLASTO.
+//! Обновление самого PLASTO из релизов github.com/plastoorg/PLASTO.
 //!
 //! Только по согласию: проверка ничего не скачивает; загрузка кладёт новый
 //! exe в папку данных и сверяет SHA-256 с GitHub; замена — переименовать
@@ -15,8 +15,8 @@ use sha2::{Digest, Sha256};
 
 use crate::host::Host;
 
-const API: &str = "https://api.github.com/repos/PLASTO-ORG/PLASTO/releases";
-const DOWNLOAD: &str = "https://github.com/PLASTO-ORG/PLASTO/releases/download/";
+const API: &str = "https://api.github.com/repos/plastoorg/PLASTO/releases";
+const DOWNLOAD: &str = "https://github.com/plastoorg/PLASTO/releases/download/";
 const MAX_EXE: u64 = 64 * 1024 * 1024;
 
 fn agent() -> Result<ureq::Agent, String> {

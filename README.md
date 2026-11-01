@@ -4,9 +4,9 @@
 
 <br />
 
-<a href="https://github.com/PLASTO-ORG/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="49" alt="Скачать PLASTO для Windows" /></a>
+<a href="https://github.com/plastoorg/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="49" alt="Скачать PLASTO для Windows" /></a>
 &nbsp;
-<a href="https://github.com/PLASTO-ORG/PLASTO"><img src="docs/assets/readme/cta-github.png" height="49" alt="Посмотреть проект на GitHub" /></a>
+<a href="https://github.com/plastoorg/PLASTO"><img src="docs/assets/readme/cta-github.png" height="49" alt="Посмотреть проект на GitHub" /></a>
 
 **Windows 10/11 · x64 · Бесплатно · Один .exe-файл · Без обязательного VPN**
 
@@ -92,7 +92,7 @@ PLASTO объединяет локальный обход DPI-блокирово
 <img src="docs/assets/readme/readme-steps.png" width="100%" alt="Три шага: скачать файл PLASTO, запустить от имени администратора, включить обход" />
 </p>
 
-1. **Скачайте** файл `PLASTO.exe` на странице [GitHub Releases](https://github.com/PLASTO-ORG/PLASTO/releases). Для запуска не нужен отдельный установщик.
+1. **Скачайте** файл `PLASTO.exe` на странице [GitHub Releases](https://github.com/plastoorg/PLASTO/releases). Для запуска не нужен отдельный установщик.
 2. **Запустите с правами администратора.** Они необходимы Windows для загрузки драйвера WinDivert, через который работает DPI-обход.
 3. **Включите обход.** При первом запуске PLASTO предложит подобрать рабочую стратегию. Вы можете оставить только нужные сервисы.
 
@@ -102,7 +102,7 @@ PLASTO объединяет локальный обход DPI-блокирово
 
 <div align="center">
 
-<a href="https://github.com/PLASTO-ORG/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="48" alt="Перейти к скачиванию PLASTO" /></a>
+<a href="https://github.com/plastoorg/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="48" alt="Перейти к скачиванию PLASTO" /></a>
 
 </div>
 
@@ -228,9 +228,9 @@ PLASTO объединяет существующие технологии и и�
 - [dns.malw.link](https://dns.malw.link) — каталог настроек прокси для ИИ-сервисов.
 - Авторам DNS-проектов, доступных в настройках приложения.
 
-В этом репозитории размещены исходный код приложения, инструкция по сборке и готовые сборки в Releases. Сайт проекта находится в [отдельном репозитории](https://github.com/PLASTO-ORG/PLASTO-site).
+В этом репозитории размещены исходный код приложения, инструкция по сборке и готовые сборки в Releases. Сайт проекта находится в [отдельном репозитории](https://github.com/plastoorg/PLASTO-site).
 
-**Проект и релизы:** [репозиторий PLASTO](https://github.com/PLASTO-ORG/PLASTO) · [Скачать PLASTO.exe](https://github.com/PLASTO-ORG/PLASTO/releases/latest/download/PLASTO.exe) · [Сообщить о проблеме](https://github.com/PLASTO-ORG/PLASTO/issues).
+**Проект и релизы:** [репозиторий PLASTO](https://github.com/plastoorg/PLASTO) · [Скачать PLASTO.exe](https://github.com/plastoorg/PLASTO/releases/latest/download/PLASTO.exe) · [Сообщить о проблеме](https://github.com/plastoorg/PLASTO/issues).
 
 ---
 
@@ -242,10 +242,10 @@ PLASTO объединяет существующие технологии и и�
 
 <br /><br />
 
-<a href="https://github.com/PLASTO-ORG/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="48" alt="Скачать PLASTO" /></a>
+<a href="https://github.com/plastoorg/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="48" alt="Скачать PLASTO" /></a>
 
 <br /><br />
 
-<sub>Страница проекта: <a href="https://plasto-org.github.io/PLASTO-site/">GitHub Pages</a> · Дизайн и изображения README находятся в <code>docs/assets/readme/</code></sub>
+<sub>Страница проекта: <a href="https://plastoorg.github.io/PLASTO/">GitHub Pages</a> · Дизайн и изображения README находятся в <code>docs/assets/readme/</code></sub>
 
 </div>
