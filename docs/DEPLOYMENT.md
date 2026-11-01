@@ -18,7 +18,7 @@ python -m http.server 8000
 
 **Вариант 2 — внутри `PLASTO-ORG/PLASTO`:** переместите все файлы этой папки в `docs/` репозитория, затем выберите **Settings → Pages → Deploy from a branch → main /docs**. Если в `docs/` уже есть документация или изображения проекта, не затирайте их — объедините каталоги и проверьте пути.
 
-GitHub Pages публикует сайт по адресу вида `https://plasto-org.github.io/PLASTO/` (для репозитория `PLASTO-ORG/PLASTO`); публикация зависит от настроек Pages.
+GitHub Pages публикует сайт по адресу вида `https://plasto-org.github.io/PLASTO-site/` (для репозитория `PLASTO-ORG/PLASTO`); публикация зависит от настроек Pages.
 
 ## Что включено
 

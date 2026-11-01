@@ -246,6 +246,6 @@ PLASTO объединяет существующие технологии и и�
 
 <br /><br />
 
-<sub>Страница проекта: <a href="https://plasto-org.github.io/PLASTO/">GitHub Pages</a> · Дизайн и изображения README находятся в <code>docs/assets/readme/</code></sub>
+<sub>Страница проекта: <a href="https://plasto-org.github.io/PLASTO-site/">GitHub Pages</a> · Дизайн и изображения README находятся в <code>docs/assets/readme/</code></sub>
 
 </div>
