@@ -1,0 +1,213 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PLASTO · Превью README</title><style>
+:root{color-scheme:light}body{margin:0;background:#f6f8fa;color:#1f2328;font:16px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+article{box-sizing:border-box;background:white;margin:28px auto;padding:34px 48px 70px;max-width:1040px;box-shadow:0 0 0 1px #d1d9e0;border-radius:10px}h1,h2,h3{font-weight:650;line-height:1.28;margin-top:32px;margin-bottom:16px}h1{font-size:32px}h2{font-size:27px;padding-bottom:.3em;border-bottom:1px solid #d8dee4}h3{font-size:21px}p{margin:0 0 16px}a{color:#0969da;text-decoration:none}a:hover{text-decoration:underline}img{max-width:100%;height:auto;vertical-align:middle}hr{border:0;border-top:1px solid #d8dee4;margin:25px 0}details{margin:12px 0;padding:12px;border:1px solid #d8dee4;border-radius:8px}summary{cursor:pointer}blockquote{padding:12px 18px;background:#f6f8fa;border-left:4px solid #d0d7de;margin:16px 0}code{font-size:.9em;background:#f6f8fa;border-radius:3px;padding:2px 4px}li{margin:5px 0}article>div:first-child{margin-bottom:18px}article p[align=center]{text-align:center}@media(max-width:700px){article{margin:0;box-shadow:none;border-radius:0;padding:16px 16px 45px}h2{font-size:24px}img{max-width:100%}article p[align=center]>img[width="49%"]{width:49%;height:auto}}
+</style></head><body><article><div align="center">
+
+<p><img src="docs/assets/readme/readme-hero.png" width="100%" alt="PLASTO — интернет снова работает. Бесплатное приложение для Windows: доступ к YouTube, Discord, Telegram и ИИ-сервисам. На обложке — реальный главный экран PLASTO." /></p>
+<p><br /></p>
+<p><a href="https://github.com/PLASTOORG/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="49" alt="Скачать PLASTO для Windows" /></a>
+ 
+<a href="https://github.com/PLASTOORG/PLASTO"><img src="docs/assets/readme/cta-github.png" height="49" alt="Посмотреть проект на GitHub" /></a></p>
+<p><strong>Windows 10/11 · x64 · Бесплатно · Один .exe-файл · Без обязательного VPN</strong></p>
+<p><a href="#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8">Возможности</a> · <a href="#%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81">Скриншоты</a> · <a href="#%D0%BA%D0%B0%D0%BA-%D1%8D%D1%82%D0%BE-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82">Как работает</a> · <a href="#%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9-%D1%81%D1%82%D0%B0%D1%80%D1%82">Скачать</a> · <a href="#%D1%87%D0%B0%D1%81%D1%82%D1%8B%D0%B5-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B">Частые вопросы</a></p>
+</div>
+
+<hr />
+<h2>Обход блокировок — не отдельная профессия</h2>
+<p><strong>PLASTO</strong> — бесплатное приложение для Windows, которое помогает восстановить доступ к YouTube, Discord, Telegram, ChatGPT, Claude, Gemini и другим сервисам. Вместо нескольких отдельных инструментов — одно окно, одна главная кнопка и понятная проверка результата.</p>
+<p>PLASTO объединяет локальный обход DPI-блокировок на основе <strong>zapret</strong>, прокси для Telegram и отдельных ИИ-платформ, настройки DNS, подбор рабочих стратегий и диагностику сети. Для локального DPI-обхода не требуется направлять весь интернет-трафик через единый VPN-сервер. Для некоторых сервисов приложение <strong>использует прокси</strong> — это отдельные механизмы, а не обещание полностью обходиться без них.</p>
+<h2>Возможности</h2>
+<p align="center">
+  <img src="docs/assets/readme/feature-1.png" width="49%" alt="YouTube и Discord — локальный DPI-обход" />
+  <img src="docs/assets/readme/feature-2.png" width="49%" alt="Telegram — встроенный локальный прокси" />
+  <img src="docs/assets/readme/feature-3.png" width="49%" alt="ИИ-сервисы — настройка доступа к ChatGPT, Claude, Gemini и другим" />
+  <img src="docs/assets/readme/feature-4.png" width="49%" alt="DNS — готовые серверы, автопереключение и восстановление настроек" />
+</p>
+
+<p><strong>И всё это управляется из одного интерфейса.</strong> Можно включать функции раздельно или пользоваться главным переключателем, который запускает выбранные механизмы. PLASTO показывает не просто состояние запущенного процесса, а результат проверки доступности сервисов.</p>
+<h2>Интерфейс</h2>
+<p>Никаких концептов и придуманных экранов — ниже <strong>скриншоты настоящего PLASTO</strong>.</p>
+<h3>Один взгляд — и понятно, что происходит</h3>
+<p align="center">
+  <img src="docs/assets/readme/states.gif" width="88%" alt="Два реальных состояния главного экрана PLASTO: процесс запускается и обход работает. Иллюстративный переход между скриншотами." />
+</p>
+
+<p align="center"><sub>Два состояния интерфейса: запуск и успешная проверка. Анимация составлена из скриншотов, а не является записью работы в реальном времени.</sub></p>
+
+<h3>Отдельное управление каждым сервисом</h3>
+<p align="center">
+<img src="docs/assets/services.webp" width="88%" alt="Вкладка Сервисы в PLASTO: YouTube и Discord, Telegram, ИИ-сервисы и DNS. Показан список DNS-серверов и время ответа." />
+</p>
+
+<p>Выбирайте нужные сервисы, DNS-провайдеров и стратегии. Ненужные механизмы можно оставить выключенными.</p>
+<h3>Диагностика — не просто тест скорости</h3>
+<p align="center">
+  <img src="docs/assets/speed.webp" width="49%" alt="Диагностика PLASTO: скорость загрузки и отдачи, пинг, серверы в России и за рубежом" />
+  <img src="docs/assets/diagnostics.webp" width="49%" alt="Системная диагностика PLASTO: WinDivert, служба, конфликты и состояние ресурсов компьютера" />
+</p>
+
+<p>Проверяйте загрузку, отдачу, пинг, задержку под нагрузкой и джиттер. Отдельная диагностика ищет конфликты драйверов, служб, VPN, настроек DNS и системы. Мониторинг стабильности отслеживает обрывы и помогает подготовить отчёт для провайдера.</p>
+<h3>Настройки без ручного редактирования конфигов</h3>
+<p align="center">
+<img src="docs/assets/settings.webp" width="88%" alt="Настройки PLASTO: управление автозапуском, обновлениями приложения и компонентов" />
+</p>
+
+<p>Автозапуск, обновления, поведение при закрытии, папки компонентов и продвинутые параметры — там, где их можно найти.</p>
+<h2>Как это работает</h2>
+<p align="center">
+<img src="docs/assets/readme/readme-flow.png" width="100%" alt="Схема PLASTO: включение механизмов обхода, проверка доступности сервисов и показ результатов с подсказками" />
+</p>
+
+<p>В основе — несколько разных способов восстановления доступа, а не «одна волшебная технология»:</p>
+<ul>
+<li><strong>DPI-обход</strong> изменяет обработку соединений с поддерживаемыми сайтами через <code>zapret</code> и драйвер <code>WinDivert</code>. PLASTO предлагает подбор подходящей стратегии.</li>
+<li><strong>Telegram-прокси</strong> работает как локальный компонент и подключается в Telegram по ссылке.</li>
+<li><strong>ИИ-сервисы</strong> могут требовать двух отдельных действий: обхода ограничений провайдера и использования прокси для сервисов с региональными ограничениями.</li>
+<li><strong>DNS</strong> позволяет выбрать альтернативный сервер, проверить его доступность и при необходимости вернуть системные настройки.</li>
+</ul>
+<blockquote>
+<p>[!IMPORTANT]
+PLASTO не гарантирует доступ ко всем сервисам в любой сети. Эффективность обхода, задержка и скорость зависят от провайдера, региона, выбранной стратегии и используемого прокси. Скриншоты демонстрируют интерфейс приложения, а не результаты измерений вашего подключения.</p>
+</blockquote>
+<h2>Быстрый старт</h2>
+<p align="center">
+<img src="docs/assets/readme/readme-steps.png" width="100%" alt="Три шага: скачать файл PLASTO, запустить от имени администратора, включить обход" />
+</p>
+
+<ol>
+<li><strong>Скачайте</strong> файл <code>PLASTO.exe</code> на странице <a href="https://github.com/PLASTOORG/PLASTO/releases">GitHub Releases</a>. Для запуска не нужен отдельный установщик.</li>
+<li><strong>Запустите с правами администратора.</strong> Они необходимы Windows для загрузки драйвера WinDivert, через который работает DPI-обход.</li>
+<li><strong>Включите обход.</strong> При первом запуске PLASTO предложит подобрать рабочую стратегию. Вы можете оставить только нужные сервисы.</li>
+</ol>
+<p>Базовые компоненты <code>zapret</code> включены в сборку — для их первоначального получения необязательно скачивать отдельный архив с GitHub.</p>
+<p><strong>Требования:</strong> Windows 10 или 11 (x64). Часть возможностей защищённого DNS доступна только в Windows 11.</p>
+<div align="center">
+
+<p><a href="https://github.com/PLASTOORG/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="48" alt="Перейти к скачиванию PLASTO" /></a></p>
+</div>
+
+<h2>Подробности для тех, кто любит контроль</h2>
+<details>
+<summary><b>Обход блокировок: стратегии, домены и игры</b></summary>
+
+<ul>
+<li>Автоматический подбор стратегии по результатам проверок YouTube, Discord и других адресов; повторный подбор при проблемах.</li>
+<li>Ручной выбор и тестирование стратегии.</li>
+<li>Встроенная сборка <code>zapret-discord-youtube</code>; возможность обновления компонентов.</li>
+<li>Игровой фильтр с обработкой соответствующих портов и настройками для онлайн-игр.</li>
+<li>Добавление собственных доменов.</li>
+<li>Для опытных пользователей — выбор движка и просмотр/изменение команды запуска.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>Telegram и ИИ: встроенные прокси и адресные настройки</b></summary>
+
+<p><strong>Telegram:</strong> встроенный <code>tg-ws-proxy-rs</code>, подключение по ссылке, копирование прокси, возможность переключения на другую поддерживаемую реализацию.</p>
+<p><strong>ИИ-сервисы:</strong> ChatGPT, OpenAI API и Codex, Claude, Gemini, AI Studio, Google Labs, Grok, GitHub Copilot, Cursor, JetBrains AI, Perplexity, Hugging Face и другие. Доступность зависит от текущих ограничений каждого сервиса.</p>
+<ul>
+<li>Раздельные настройки обхода блокировки провайдера и регионального прокси.</li>
+<li>Проверка доступа к сервисам, обновление каталога прокси и возможность задать свой SNI-прокси.</li>
+<li>Дополнительный блоклист вредоносных и рекламных адресов.</li>
+<li>Резервная копия <code>hosts</code> с возможностью восстановления исходного состояния.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>DNS: выбор сервера, проверка и восстановление</b></summary>
+
+<ul>
+<li>Готовые профили: DNS-AI.ru, xbox-dns.ru, Comss.one, dns.zapret.moe, dns.malw.link, GeoHide, CommonNet, Bezmezhau, а также Cloudflare и Google.</li>
+<li>Проверка времени ответа и доступности DNS.</li>
+<li>Добавление собственных DNS-адресов.</li>
+<li>Проверка выбранного DNS с возможностью автоматического переключения при отказе.</li>
+<li>Восстановление прежних DNS-настроек сети одной командой.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>Диагностика: скорость, стабильность и система</b></summary>
+
+<ul>
+<li>Тестирование загрузки, отдачи, пинга, джиттера и задержки под нагрузкой на российских и зарубежных серверах.</li>
+<li>Контроль соединения с интервалом около секунды, включая работу в трее.</li>
+<li>Анализ вероятного участка сбоя: Wi-Fi/кабель, маршрутизатор, провайдер или внешняя сеть.</li>
+<li>История обрывов и графики за разные периоды.</li>
+<li>Экспорт HTML-отчёта с временными отметками для обращения к провайдеру.</li>
+<li>Проверки системного прокси, защищённого DNS, файла <code>hosts</code>, драйвера WinDivert и конфликтующих программ.</li>
+<li>Сводка по процессору, памяти, видеокарте и накопителю.</li>
+<li>Просмотр журнала событий обхода.</li>
+</ul>
+</details>
+
+<details>
+<summary><b>Настройки, обновления и автозапуск</b></summary>
+
+<ul>
+<li>Запуск вместе с Windows, сохранение набора включённых сервисов, работа в трее.</li>
+<li>Настройка звуков, поведения при закрытии и отображения окна поверх других.</li>
+<li>Обновление приложения, <code>zapret</code> и Telegram-прокси из интерфейса.</li>
+<li>Стабильный и бета-каналы обновлений; бета-сборки могут быть предварительными и не проходить ручную проверку.</li>
+<li>Выбор папки для компонентов с переносом уже скачанных файлов.</li>
+</ul>
+</details>
+
+<h2>Частые вопросы</h2>
+<details>
+<summary><b>Это VPN?</b></summary>
+
+<p>Нет, PLASTO не создаёт обязательный общий VPN-туннель для всего трафика. Локальный DPI-обход выполняется на компьютере. Однако отдельные функции — в частности, доступ к Telegram и регионально ограниченным ИИ-сервисам — могут использовать прокси.</p>
+</details>
+
+<details>
+<summary><b>Почему нужны права администратора?</b></summary>
+
+<p>Windows требует повышенные права для операций с сетевым драйвером <code>WinDivert</code>. Без них механизм DPI-обхода не сможет запуститься.</p>
+</details>
+
+<details>
+<summary><b>Почему антивирус предупреждает о WinDivert?</b></summary>
+
+<p>WinDivert — инструмент перехвата сетевых пакетов, который может определяться защитным ПО как <code>RiskTool</code>. Само по себе такое название детекта не доказывает, что файл вредоносный, но и не гарантирует безопасность любой сборки. Скачивайте PLASTO из доверенного источника и проверяйте файлы; исключения в антивирусе добавляйте только после проверки.</p>
+</details>
+
+<details>
+<summary><b>Можно использовать с другими VPN и zapret?</b></summary>
+
+<p>Одновременный запуск другого <code>zapret</code> или VPN в режиме TUN может приводить к конфликтам обработки трафика. Рекомендуется сначала остановить конфликтующий инструмент и выполнить системную диагностику PLASTO.</p>
+</details>
+
+<details>
+<summary><b>Как полностью удалить PLASTO?</b></summary>
+
+<ol>
+<li>Выключите обход.</li>
+<li>Если меняли <code>hosts</code> или DNS, восстановите исходные параметры через соответствующие разделы приложения.</li>
+<li>Отключите автозапуск в настройках.</li>
+<li>Завершите PLASTO через значок в трее, удалите исполняемый файл и папку <code>%AppData%\app.plasto.desktop</code> (или выбранную вручную папку компонентов).</li>
+</ol>
+</details>
+
+<h2>Открытые технологии и благодарности</h2>
+<p>PLASTO объединяет существующие технологии и инструменты. Благодарность авторам и сопровождающим проектам:</p>
+<ul>
+<li><a href="https://github.com/bol-van/zapret">zapret</a> — bol-van, движок DPI-обхода.</li>
+<li><a href="https://github.com/Flowseal/zapret-discord-youtube">zapret-discord-youtube</a> — Flowseal, готовые стратегии и сборка.</li>
+<li><a href="https://github.com/Flowseal/tg-ws-proxy">tg-ws-proxy</a> и <a href="https://github.com/valnesfjord/tg-ws-proxy-rs">tg-ws-proxy-rs</a> — инструменты Telegram-прокси.</li>
+<li><a href="https://dns.malw.link">dns.malw.link</a> — каталог настроек прокси для ИИ-сервисов.</li>
+<li>Авторам DNS-проектов, доступных в настройках приложения.</li>
+</ul>
+<p>В этом репозитории размещены сайт, описание приложения и готовые сборки в Releases. Исходный код приложения в эту публикацию не входит.</p>
+<p><strong>Проект и релизы:</strong> <a href="https://github.com/PLASTOORG/PLASTO">репозиторий PLASTO</a> · <a href="https://github.com/PLASTOORG/PLASTO/releases/latest/download/PLASTO.exe">Скачать PLASTO.exe</a> · <a href="https://github.com/PLASTOORG/PLASTO/issues">Сообщить о проблеме</a>.</p>
+<hr />
+<div align="center">
+
+<h3>Интернет должен работать.</h3>
+<p><sub>PLASTO · Бесплатное приложение для Windows · DPI-обход, Telegram-прокси, DNS и диагностика сети</sub></p>
+<p><br /><br /></p>
+<p><a href="https://github.com/PLASTOORG/PLASTO/releases"><img src="docs/assets/readme/cta-download.png" height="48" alt="Скачать PLASTO" /></a></p>
+<p><br /><br /></p>
+<p><sub>Страница проекта: <a href="https://plastoorg.github.io/PLASTO/">GitHub Pages</a> · Дизайн и изображения README находятся в <code>docs/assets/readme/</code></sub></p>
+</div>
+
+</article></body></html>

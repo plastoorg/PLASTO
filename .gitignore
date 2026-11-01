@@ -1,0 +1,7 @@
+# Executable is distributed through GitHub Releases.
+/PLASTO.exe
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
