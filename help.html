@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Помощь с PLASTO для Windows: запуск, доступ к сервисам, предупреждения антивируса и проверка файла.">
+  <meta name="theme-color" content="#f8f9fb">
+  <link rel="canonical" href="https://plastoorg.github.io/PLASTO/help.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Помощь с PLASTO — запуск и диагностика">
+  <meta property="og:description" content="Как проверить запуск, соединение и предупреждения антивируса в PLASTO.">
+  <meta property="og:url" content="https://plastoorg.github.io/PLASTO/help.html">
+  <meta property="og:image" content="https://plastoorg.github.io/PLASTO/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>PLASTO не работает: запуск, соединение и антивирус — помощь</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .help-header{padding:28px 0;border-bottom:1px solid var(--stroke)}.help-nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.help-nav a:last-child{font-size:14px;font-weight:700;color:#30343a}.help-main{max-width:860px;padding-top:72px;padding-bottom:100px}.help-kicker{color:#17865c;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.help-main h1{font-size:clamp(36px,6vw,66px);line-height:1.04;letter-spacing:-.045em;margin:22px 0}.help-lead{font-size:clamp(17px,2vw,20px);line-height:1.7;color:#565963;max-width:730px}.help-index{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 60px}.help-index a{border:1px solid #dfe2e7;background:#fff;padding:10px 14px;border-radius:30px;font-size:13px;font-weight:700}.help-content section{border-top:1px solid var(--stroke);padding:32px 0}.help-content h2{font-size:clamp(23px,3vw,30px);letter-spacing:-.025em;margin:0 0 16px}.help-content p,.help-content li{font-size:16px;line-height:1.8;color:#41444b}.help-content li+li{margin-top:10px}.help-content a{color:#08734e;text-decoration:underline;text-underline-offset:3px}.help-note{background:#fff;border:1px solid var(--stroke);border-radius:18px;padding:20px 24px;margin:20px 0}.help-note p{margin:0}.help-footer{border-top:1px solid var(--stroke);padding:28px 0;color:#62666f;font-size:13px}.help-footer a{color:#08734e}@media(max-width:640px){.help-header{padding:20px 0}.help-main{padding-top:50px;padding-bottom:60px}.help-index{margin-bottom:40px}.help-content section{padding:25px 0}}
+  </style>
+</head>
+<body>
+  <header class="help-header"><nav class="help-nav shell" aria-label="Навигация"><a class="wordmark" href="./" aria-label="PLASTO — главная"><span class="brand-mark" aria-hidden="true">P<span class="brand-dot"></span></span><span>PLASTO<span class="wordmark-period">.</span></span></a><a href="./">На главную ↗</a></nav></header>
+  <main class="help-main shell">
+    <p class="help-kicker">PLASTO / ПОМОЩЬ</p>
+    <h1>Если что-то<br>не работает.</h1>
+    <p class="help-lead">Проверьте запуск, соединение и предупреждения защитных программ. Здесь собраны шаги, с которых удобно начать диагностику PLASTO для Windows.</p>
+    <nav class="help-index" aria-label="На этой странице"><a href="#start">Запуск</a><a href="#connection">Подключение</a><a href="#antivirus">Антивирус</a><a href="#checksum">Проверка файла</a><a href="#feedback">Обратная связь</a></nav>
+    <div class="help-content">
+      <section id="start"><h2>PLASTO не запускается</h2><ol><li>Убедитесь, что используете Windows 10 или 11 x64. Официальный файл доступен на <a href="https://github.com/plastoorg/PLASTO/releases/latest">странице релизов</a>.</li><li>Для сетевого драйвера WinDivert приложению нужны права администратора. Если защитная программа блокирует запуск, сначала изучите её предупреждение — не игнорируйте его автоматически.</li><li>Проверьте системную диагностику PLASTO и возможные конфликты с другим zapret или VPN в режиме TUN.</li></ol></section>
+      <section id="connection"><h2>Сервис не открывается</h2><p>Для YouTube и Discord проверьте, что DPI-обход включён, затем запустите подбор стратегии и дождитесь проверки. Для Telegram проверьте подключение к прокси через ссылку, которую предлагает приложение.</p><p>Для некоторых ИИ-сервисов могут требоваться и обход ограничений провайдера, и региональный прокси. Доступность зависит от сети, региона и настроек; результат не гарантирован.</p></section>
+      <section id="antivirus"><h2>Антивирус предупреждает о PLASTO</h2><p>PLASTO использует WinDivert для работы с сетевым трафиком; некоторые антивирусы относят этот компонент к RiskTool или потенциально нежелательным программам. Защитная программа также может сообщать о подозрительном поведении самого приложения.</p><div class="help-note"><p><strong>Статус проверки:</strong> получено сообщение об обнаружении Microsoft Defender <code>Behavior:Win32/Persistence.A!ml</code>. Файл отправлен в Microsoft на проверку; её результат пока не подтверждён. Название обнаружения само по себе не доказывает ни наличие угрозы, ни безопасность файла.</p></div><p>Посмотрите название обнаружения и затронутый файл в истории защиты. Не отключайте защиту целиком и не восстанавливайте файл из карантина, пока не уверены в его происхождении и результате проверки. При сомнениях обратитесь к разработчику антивируса.</p></section>
+      <section id="checksum"><h2>Как проверить скачанный файл</h2><p>Сверьте SHA-256 файла с суммой, опубликованной на странице соответствующего релиза. В PowerShell выполните команду, указав путь к скачанному файлу:</p><div class="help-note"><p><code>Get-FileHash -Algorithm SHA256 "путь\к\PLASTO.exe"</code></p></div><p>Совпадение хеша показывает, что файлы одинаковы; само по себе оно не доказывает безопасность программы. Контрольную сумму и файл важно получать из доверенного источника.</p></section>
+      <section id="feedback"><h2>Как сообщить о проблеме</h2><p>Откройте <a href="https://github.com/plastoorg/PLASTO/issues">обращение на GitHub</a> и укажите версию Windows, версию PLASTO, что произошло и какие действия вы уже попробовали. Перед публикацией удалите из журналов и скриншотов личные данные, IP-адреса, имена пользователей и секреты. Обращения в публичном репозитории видны всем.</p><p><a href="https://github.com/plastoorg/PLASTO/blob/main/docs/diagnostika.md">Подробнее в документации по диагностике →</a></p></section>
+    </div>
+  </main>
+  <footer class="help-footer"><div class="shell">PLASTO · <a href="./">На главную</a> · <a href="https://github.com/plastoorg/PLASTO">GitHub</a></div></footer>
+</body>
+</html>
