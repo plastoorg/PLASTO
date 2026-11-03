@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="Как настроить доступ к Gemini, ChatGPT и Claude в PLASTO: обход, прокси, проверка соединения и восстановление hosts.">
+  <link rel="canonical" href="https://plastoorg.github.io/PLASTO/ai-services.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Gemini, ChatGPT и Claude — настройка доступа в PLASTO">
+  <meta property="og:description" content="Пошаговая инструкция: выбор сервисов, настройки обхода и прокси, проверка соединения и возврат настроек.">
+  <meta property="og:url" content="https://plastoorg.github.io/PLASTO/ai-services.html">
+  <meta property="og:image" content="https://plastoorg.github.io/PLASTO/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Gemini, ChatGPT и Claude — настройка доступа в PLASTO для Windows</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .guide-head{padding:28px 0;border-bottom:1px solid var(--stroke)}.guide-nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.guide-nav a:last-child{font-size:14px;font-weight:700;color:#30343a}.guide-main{max-width:860px;padding-top:72px;padding-bottom:96px}.guide-kicker{color:#17865c;font-size:12px;font-weight:800;letter-spacing:.14em}.guide-main h1{font-size:clamp(35px,6vw,62px);line-height:1.07;letter-spacing:-.045em;margin:22px 0}.guide-lead{font-size:clamp(17px,2vw,20px);line-height:1.7;color:#565963}.guide-index{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 55px}.guide-index a{border:1px solid #dfe2e7;background:#fff;padding:10px 14px;border-radius:30px;font-size:13px;font-weight:700}.guide-content section{border-top:1px solid var(--stroke);padding:32px 0}.guide-content h2{font-size:clamp(23px,3vw,30px);letter-spacing:-.025em;margin:0 0 16px}.guide-content p,.guide-content li{font-size:16px;line-height:1.8;color:#41444b}.guide-content li+li{margin-top:10px}.guide-content a{color:#08734e;text-decoration:underline;text-underline-offset:3px}.guide-note{background:#fff;border:1px solid var(--stroke);border-radius:18px;padding:20px 24px;margin:20px 0}.guide-note p{margin:0}.guide-foot{border-top:1px solid var(--stroke);padding:28px 0;color:#62666f;font-size:13px}.guide-foot a{color:#08734e}@media(max-width:640px){.guide-head{padding:20px 0}.guide-main{padding-top:50px;padding-bottom:60px}.guide-index{margin-bottom:40px}.guide-content section{padding:25px 0}}
+  </style>
+</head>
+<body>
+  <header class="guide-head"><nav class="guide-nav shell" aria-label="Навигация"><a class="wordmark" href="./" aria-label="PLASTO — главная"><span class="brand-mark" aria-hidden="true">P<span class="brand-dot"></span></span><span>PLASTO<span class="wordmark-period">.</span></span></a><a href="./">На главную ↗</a></nav></header>
+  <main class="guide-main shell">
+    <p class="guide-kicker">PLASTO / ИИ-СЕРВИСЫ</p>
+    <h1>Доступ к Gemini,<br>ChatGPT и Claude.</h1>
+    <p class="guide-lead">Как выбрать сервисы, настроить обход и прокси в PLASTO для Windows и проверить соединение — с возможностью вернуть изменения.</p>
+    <nav class="guide-index" aria-label="На этой странице"><a href="#setup">Настройка</a><a href="#mechanisms">Обход и прокси</a><a href="#check">Проверка доступа</a><a href="#restore">Вернуть настройки</a></nav>
+    <div class="guide-content">
+      <section id="setup"><h2>С чего начать</h2><ol><li>Откройте PLASTO, перейдите в <strong>«Сервисы» → «ИИ-сервисы»</strong> и найдите нужные сервисы в списке.</li><li>Для каждого выберите нужные параметры в колонках <strong>«обход»</strong> и <strong>«прокси»</strong>. Доступные параметры зависят от сервиса и каталога прокси.</li><li>Нажмите <strong>«Применить»</strong>, затем <strong>«Проверить доступ»</strong>. Включите обход, если он ещё выключен.</li><li>Откройте нужный сервис в браузере и проверьте его работу после входа в аккаунт.</li></ol><div class="guide-note"><p>Доступ зависит от сети, страны, настроек, выбранного прокси и ограничений сервиса. Работа на всех подключениях не гарантируется.</p></div></section>
+      <section id="mechanisms"><h2>Зачем нужны обход и прокси</h2><p>Локальный DPI-обход и прокси — разные механизмы. Для некоторых сервисов могут понадобиться оба: доступность зависит как от сети провайдера, так и от правил самого сервиса.</p><p>PLASTO использует каталог адресов прокси; в расширенных настройках можно указать свой SNI-прокси. Применение прокси для ИИ меняет записи файла <code>hosts</code>. Настройки DNS находятся в отдельном разделе «Сервисы → DNS».</p><p>Прокси обрабатывает соединения, направленные через него: выбирайте только адреса, которым доверяете, и учитывайте политику конфиденциальности их владельцев.</p></section>
+      <section id="check"><h2>Что показывает проверка доступа</h2><p>Проверка отправляет сетевой запрос и показывает ответ или ошибку и время ответа. Это помогает понять, отвечает ли сервис, но <strong>не подтверждает работу после входа</strong> и не всегда позволяет установить причину отказа. Например, один только HTTP 403 не объясняет, почему сервер отклонил запрос.</p><p>Если сервис не открывается, проверьте, применены ли настройки, включён ли обход и доступен ли выбранный прокси. В системной диагностике PLASTO также можно проверить предупреждения, связанные с DNS в браузере. Проверяйте изменения последовательно, чтобы понять, что повлияло на результат.</p></section>
+      <section id="restore"><h2>Как вернуть настройки</h2><p>Чтобы восстановить записи <code>hosts</code>, используйте кнопку <strong>«Вернуть hosts»</strong> в разделе «ИИ-сервисы». DNS настраивается и восстанавливается отдельно в разделе DNS. Если остались вопросы о запуске или предупреждении антивируса, откройте <a href="help.html">страницу помощи</a>.</p><p>Обнаружение Microsoft Defender для одной из сборок находится на проверке; актуальное описание и ссылки — в <a href="https://github.com/plastoorg/PLASTO/releases/latest">разделе релизов</a>.</p></section>
+    </div>
+  </main>
+  <footer class="guide-foot"><div class="shell">PLASTO · <a href="./">На главную</a> · <a href="help.html">Помощь</a> · <a href="https://github.com/plastoorg/PLASTO">GitHub</a></div></footer>
+</body>
+</html>
